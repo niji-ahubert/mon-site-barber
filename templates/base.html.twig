@@ -32,6 +32,12 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
+{# read and display just one flash message type #}
+{% for message in app.flashes('success') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
 
 <div class="site-wrap" id="home-section">
     {{ include ('menu.html.twig') }}
