@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% macro my_service(h3_title, description, icon_name) %}
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-1 dark">
+            <span class="service-1-icon">
+                <span class="{{ icon_name }}"></span>
+            </span>
+            <div class="service-1-contents">
+                <h3>{{ h3_title }}</h3>
+                <p>{{ description }}</p>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% block title %}Hello ServicesController!{% endblock %}
+
+{% block body %}
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                {%  for service in my_services %}
+                    {{ _self.my_service(service.h3_title,service.description,service.icon_name) }}
+                {%  endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
